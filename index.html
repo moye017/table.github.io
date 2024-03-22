@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>手势朗读信息系统</title>
+    <title>朗读信息系统</title>
     <style>
         body {
             display: flex;
@@ -16,70 +16,31 @@
             margin: 10px;
             text-align: center;
         }
+        .touch-area {
+            width: 100%; /* 设置触摸区域的宽度 */
+            height: 200px; /* 设置触摸区域的高度 */
+            border: 1px solid #000;
+            margin-top: 20px;
+            position: relative; /* 为后面定位提示文字 */
+        }
+        .touch-area p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
     </style>
 </head>
 <body>
-    <h1>手势朗读系统</h1>
-    <p id="message">请滑动屏幕...</p>
-    <script>
-        const messageElement = document.getElementById('message');
-
-        const messages = {
-            'up': '向上',
-            'down': '向下',
-            'left': '向左',
-            'right': '向右'
-        };
-
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let touchEndX = 0;
-        let touchEndY = 0;
-
-        const handleGesture = () => {
-            const dx = touchEndX - touchStartX;
-            const dy = touchEndY - touchStartY;
-            const absDx = Math.abs(dx);
-            const absDy = Math.abs(dy);
-
-            if (Math.max(absDx, absDy) > 50) { // 只有在一定距离（50px）以上的滑动时才识别
-                if (absDx > absDy) {
-                    // 水平方向滑动
-                    if (dx > 0) {
-                        speak('right');
-                    } else {
-                        speak('left');
-                    }
-                } else {
-                    // 垂直方向滑动
-                    if (dy > 0) {
-                        speak('down');
-                    } else {
-                        speak('up');
-                    }
-                }
-            }
-        };
-
-        const speak = (direction) => {
-            const message = messages[direction];
-            if (message) {
-                messageElement.textContent = message;
-                const utterance = new SpeechSynthesisUtterance(message);
-                speechSynthesis.speak(utterance);
-            }
-        };
-
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-        }, false);
-
-        document.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
-            handleGesture();
-        }, false);
-    </script>
+    <h1>朗读信息系统</h1>
+    <p id="message">请按上下左右键或滑动屏幕...</p>
+    <div class="touch-area">
+        <p>滑动这里</p>
+    </div>
+    <table>
+        <tr><th>123</th></tr>
+        <tr><td>123</td></tr>
+    </table>
 </body>
 </html>
