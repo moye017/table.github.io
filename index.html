@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>朗读信息系统</title>
+    <title>手势朗读信息系统</title>
     <style>
         body {
             display: flex;
@@ -19,55 +19,67 @@
     </style>
 </head>
 <body>
-    <h1>按键朗读系统</h1>
-    <p id="message">请按上下左右键...</p>
+    <h1>手势朗读系统</h1>
+    <p id="message">请滑动屏幕...</p>
     <script>
         const messageElement = document.getElementById('message');
 
         const messages = {
-            'ArrowUp': '向上，你选择了向上方向...',
-            'ArrowDown': '向下，小心脚下...',
-            'ArrowLeft': '向左，你选择了向左转...',
-            'ArrowRight': '向右，向右意味着你将会看到新的风景...'
+            'up': '向上',
+            'down': '向下',
+            'left': '向左',
+            'right': '向右'
         };
 
-        // 获取所有可用声音
-        let voices = [];
-        const loadVoices = () => {
-            voices = speechSynthesis.getVoices();
-        };
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
 
-        // Chrome在页面加载时不会立即加载voice list
-        loadVoices();
-        if (speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = loadVoices;
-        }
+        const handleGesture = () => {
+            const dx = touchEndX - touchStartX;
+            const dy = touchEndY - touchStartY;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
 
-        const stopSpeaking = () => {
-            if (speechSynthesis.speaking) {
-                speechSynthesis.cancel();
+            if (Math.max(absDx, absDy) > 50) { // 只有在一定距离（50px）以上的滑动时才识别
+                if (absDx > absDy) {
+                    // 水平方向滑动
+                    if (dx > 0) {
+                        speak('right');
+                    } else {
+                        speak('left');
+                    }
+                } else {
+                    // 垂直方向滑动
+                    if (dy > 0) {
+                        speak('down');
+                    } else {
+                        speak('up');
+                    }
+                }
             }
         };
 
-        const speak = (text) => {
-            stopSpeaking();
-
-            const utterance = new SpeechSynthesisUtterance(text);
-            // 以下设置可以根据需要进行调整
-            utterance.rate = 4; // 速度，范围从0.1到10，默认为1
-            utterance.pitch = 1; // 语调，范围从0到2，默认为1
-            utterance.voice = voices.filter(voice => voice.lang.includes('zh-CN'))[0]; // 选择中文声音
-
-            speechSynthesis.speak(utterance);
-        };
-
-        document.addEventListener('keydown', (event) => {
-            const message = messages[event.key];
+        const speak = (direction) => {
+            const message = messages[direction];
             if (message) {
                 messageElement.textContent = message;
-                speak(message);
+                const utterance = new SpeechSynthesisUtterance(message);
+                speechSynthesis.speak(utterance);
             }
-        });
+        };
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGesture();
+        }, false);
     </script>
 </body>
 </html>
