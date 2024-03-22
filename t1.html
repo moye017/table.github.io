@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朗读信息系统</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        #message {
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>按键朗读系统</h1>
+    <p id="message">请按上下左右键...</p>
+    <script>
+        const messageElement = document.getElementById('message');
+
+        const messages = {
+            'ArrowUp': '向上，你选择了向上方向...',
+            'ArrowDown': '向下，小心脚下...',
+            'ArrowLeft': '向左，你选择了向左转...',
+            'ArrowRight': '向右，向右意味着你将会看到新的风景...'
+        };
+
+        // 获取所有可用声音
+        let voices = [];
+        const loadVoices = () => {
+            voices = speechSynthesis.getVoices();
+        };
+
+        // Chrome在页面加载时不会立即加载voice list
+        loadVoices();
+        if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = loadVoices;
+        }
+
+        const stopSpeaking = () => {
+            if (speechSynthesis.speaking) {
+                speechSynthesis.cancel();
+            }
+        };
+
+        const speak = (text) => {
+            stopSpeaking();
+
+            const utterance = new SpeechSynthesisUtterance(text);
+            // 以下设置可以根据需要进行调整
+            utterance.rate = 4; // 速度，范围从0.1到10，默认为1
+            utterance.pitch = 1; // 语调，范围从0到2，默认为1
+            utterance.voice = voices.filter(voice => voice.lang.includes('zh-CN'))[0]; // 选择中文声音
+
+            speechSynthesis.speak(utterance);
+        };
+
+        document.addEventListener('keydown', (event) => {
+            const message = messages[event.key];
+            if (message) {
+                messageElement.textContent = message;
+                speak(message);
+            }
+        });
+    </script>
+</body>
+</html>
