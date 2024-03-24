@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>朗读信息系统</title>
-    <style>
 
-    </style>
-</head>
-<body>
-    <h1>朗读信息系统</h1>
-    <div>
-        <div>123</div>
-        <div>344</div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>朗读信息系统</title>
+        <style>
+            .grid {
+                display: flex;
+                flex-direction: column;
+            }
 
-    <div>
-        <div>34</div>
-        <div>5</div>
-    </div>
+            .row {
+                display: flex;
+            }
 
-    <div>
-        
-    </div>
+            .cell {
+                flex: 1;
+                /* 让所有单元格都有相同的宽度 */
+                border: 1px solid #000;
+                /* 边框用于显示分隔线 */
+                padding: 10px;
+                /* 一些内边距使内容不会紧贴边框 */
+                text-align: center;
+                /* 文本居中显示 */
+            }
 
-    <div>
-        
-    </div>
+            /* 可选的，为了更好的视觉效果，可以设置单元格的最小宽度和高度 */
+            .cell {
+                min-width: 50px;
+                /* 单元格的最小宽度 */
+                height: 50px;
+                /* 单元格的高度 */
+            }
+        </style>
+    </head>
 
-</body>
+    <body>
+        <div class="grid">
+            <div class="row">
+                <div class="cell">1,1</div>
+                <div class="cell">1,2</div>
+                <div class="cell">1,3</div>
+                <div class="cell">1,4</div>
+            </div>
+            <div class="row">
+                <div class="cell">2,1</div>
+                <div class="cell">2,2</div>
+                <div class="cell">2,3</div>
+                <div class="cell">2,4</div>
+            </div>
+            <div class="row">
+                <div class="cell">3,1</div>
+                <div class="cell">3,2</div>
+                <div class="cell">3,3</div>
+                <div class="cell">3,4</div>
+            </div>
+        </div>
+    </body>
+
 </html>
