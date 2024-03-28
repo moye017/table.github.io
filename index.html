@@ -5,58 +5,167 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>朗读信息系统</title>
-        <style>
-            .grid {
-                display: flex;
-                flex-direction: column;
-            }
 
-            .row {
-                display: flex;
-            }
-
-            .cell {
-                flex: 1;
-                /* 让所有单元格都有相同的宽度 */
-                border: 1px solid #000;
-                /* 边框用于显示分隔线 */
-                padding: 10px;
-                /* 一些内边距使内容不会紧贴边框 */
-                text-align: center;
-                /* 文本居中显示 */
-            }
-
-            /* 可选的，为了更好的视觉效果，可以设置单元格的最小宽度和高度 */
-            .cell {
-                min-width: 50px;
-                /* 单元格的最小宽度 */
-                height: 50px;
-                /* 单元格的高度 */
-            }
-        </style>
     </head>
 
     <body>
-        <div class="grid">
-            <div class="row">
-                <div class="cell">1,1</div>
-                <div class="cell">1,2</div>
-                <div class="cell">1,3</div>
-                <div class="cell">1,4</div>
-            </div>
-            <div class="row">
-                <div class="cell">2,1</div>
-                <div class="cell">2,2</div>
-                <div class="cell">2,3</div>
-                <div class="cell">2,4</div>
-            </div>
-            <div class="row">
-                <div class="cell">3,1</div>
-                <div class="cell">3,2</div>
-                <div class="cell">3,3</div>
-                <div class="cell">3,4</div>
-            </div>
-        </div>
+        <p>下面是第一个图片表格。有四个选项，分别代表四种阅读的方法：传统型、Chatgpt型、工具1型、工具2型，请您按顺序访问，然后进行评价。</p>
+        
+        <p>选项1——传统型</p>
+        <table>
+            <tr>
+                <th></th>
+                <th>一季度</th>
+                <th>二季度</th>
+                <th>三季度</th>
+                <th>四季度</th>
+                <th>全年</th>
+            </tr>
+            <tr>
+                <th>签约指标</th>
+                <td>70</td>
+                <td>90</td>
+                <td>68</td>
+                <td>103</td>
+                <td>331</td>
+            </tr>
+            <tr>
+                <th>实际达成</th>
+                <td>73</td>
+                <td>82</td>
+                <td>21</td>
+                <td>144</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <th>综合完成率</th>
+                <td>104%</td>
+                <td>91%</td>
+                <td>31%</td>
+                <td>140%</td>
+                <td>97%</td>
+            </tr>
+        </table>
+
+        <p>选项2——Chatgpt型</p>
+        <div>这张图片显示了一个表格,包含了某地产4季度的整体销售额数据。表格左侧列出了不同的地区或项目,右边则依季度列出了相应的销售金额。
+            表格中有各个地区按地理位置分组,每组内部项目根据数值大小排列。整个表格反映了公司过去4季度在各区域的业绩情况。</div>
+
+        <p>选项3——工具1型</p>
+        <div>签约指标，一季度:70,</div>
+        <div>签约指标,二季度:90, </div>
+        <div>签约指标,三季度:68,</div>
+        <div>签约指标,四季度:103,</div>
+        <div>签约指标,全年:331,</div>
+        <div>实际达成,一季度:73</div>
+        <div>实际达成,二季度:82</div>
+        <div>实际达成,三季度:21</div>
+        <div>实际达成,四季度:144</div>
+        <div>实际达成,全年:320</div>
+        <div>综合完成率,一季度:104%</div>
+        <div>综合完成率,二季度:91%</div>
+        <div>综合完成率,三季度:31%</div>
+        <div>综合完成率,四季度:140%</div>
+        <div>综合完成率,全年:97%</div>
+
+        <p>选项4——工具2型</p>
+        <div>70:签约指标/一季度</div>
+        <div>90: 签约指标/二季度</div>
+        <div>68: 签约指标/三季度</div>
+        <div>103: 签约指标/四季度</div>
+        <div>331: 签约指标/全年</div>
+        <div>73:实际达成/一季度</div>
+        <div>82: 实际达成/二季度</div>
+        <div>21: 实际达成/三季度</div>
+        <div>144: 实际达成/四季度</div>
+        <div>320: 实际达成/全年</div>
+        <div>104%:综合完成率/一季度</div>
+        <div>91%: 综合完成率/二季度</div>
+        <div>31%: 综合完成率/三季度</div>
+        <div>140%: 综合完成率/四季度</div>
+        <div>97%: 综合完成率/全年</div>
+    </body>
+
+    <p>下面是第二个图片表格。有四个选项，分别代表四种阅读的方法：传统型、Chatgpt型、工具1型、工具2型，请您按顺序访问，然后进行评价。</p>
+    <p>选项1——传统型</p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <p>选项2——Chatgpt型</p>
+    <div>这是一个标题为"3+3贴心质保服务"的表格,分为三个主要部分:生效范围、保修期限和保修服务项目。
+
+        生效范围部分列出了CPU、主板、内存、硬盘、显卡等硬件设备。
+
+        保修期限部分解释了不同硬件的保修时长,如主板、CPU等2年保修,硬盘1年保修。
+
+        保修服务项目部分则列出了在保修期内可获得的三项服务:免费上门维修、保留故障硬件和免费返修。
+
+        总的来说,这个表格概述了电脑硬件产品的3年加3年质保政策,对消费者的权益提供了全面保障。</div>
+
+    <p>选项3——工具1型</p>
+    <p>选项4——工具2型</p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <p>下面是第三个图片表格。有四个选项，分别代表四种阅读的方法：传统型、Chatgpt型、工具1型、工具2型，请您按顺序访问，然后进行评价。</p>
+    <p>选项1——传统型</p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <p>选项2——Chatgpt型</p>
+    <div>这是一个标题为"3+3贴心质保服务"的表格,分为三个主要部分:生效范围、保修期限和保修服务项目。
+
+        生效范围部分列出了CPU、主板、内存、硬盘、显卡等硬件设备。
+
+        保修期限部分解释了不同硬件的保修时长,如主板、CPU等2年保修,硬盘1年保修。
+
+        保修服务项目部分则列出了在保修期内可获得的三项服务:免费上门维修、保留故障硬件和免费返修。
+
+        总的来说,这个表格概述了电脑硬件产品的3年加3年质保政策,对消费者的权益提供了全面保障。</div>
+
+    <p>选项3——工具1型</p>
+    <p>选项4——工具2型</p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </body>
+
+
+
+
+
+
     </body>
 
 </html>
