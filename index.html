@@ -6,9 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>提交后显示文本</title>
         <style>
-            /*             div {
-                display: none;
-            } */
+            table,
+            td {
+                border: 1px solid black;
+            }
 
             span,
             input {
@@ -24,11 +25,64 @@
     </head>
 
     <body>
-        <img src="5202154.png" alt="pic12.png"><br><br><br><br>
-        <p>Artificial Intelligence Q&A</p>
-        <input type="text" id="inputText" placeholder="">
-        <button onclick="submitText()">submit</button><br>
-        <p><input type="text" id="outputText" placeholder=""></p><br><br><br><br>
+        <!-- <img src="./3.jpg"><br><br> -->
+        <div>表格一点一</div>
+        <table>
+            <tr>
+                <td></td>
+                <td>一季度</td>
+                <td>二季度</td>
+                <td>三季度</td>
+                <td>四季度</td>
+                <td>全年</td>
+            </tr>
+            <tr>
+                <td>签约指标</td>
+                <td>70</td>
+                <td>90</td>
+                <td>68</td>
+                <td>103</td>
+                <td>331</td>
+            </tr>
+            <tr>
+                <td>实际达成</td>
+                <td>73</td>
+                <td>82</td>
+                <td>21</td>
+                <td>144</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <td>综合完成率</td>
+                <td>104%</td>
+                <td>91%</td>
+                <td>31%</td>
+                <td>140%</td>
+                <td>97%</td>
+            </tr>
+        </table>
+
+        <div>表格一点二</div>
+        <div>表格，4杭6列，季度销售指标统计表，表头是一季度、二季度、三季度、四季度、全年的签约指标、实际达成、综合完成率</div>
+        <div>一季度签约指标：70</div>
+        <div>二季度签约指标：90</div>
+        <div>三季度签约指标：68</div>
+        <div>四季度签约指标：109</div>
+        <div>全年签约指标：331</div>
+        <div>一季度实际达成：73</div>
+        <div>二季度实际达成：82</div>
+        <div>三季度实际达成：21</div>
+        <div>四季度实际达成：144</div>
+        <div>全年实际达成：320</div>
+        <div>一季度综合完成率：104%</div>
+        <div>二季度综合完成率：91%</div>
+        <div>三季度综合完成率：31%</div>
+        <div>四季度综合完成率：140%</div>
+        <div>全年综合完成率：97%</div>
+
+
+        <!-- <div>表格2</div>
+        <img src="3.png" alt="pic12.png"><br><br>
         <div>table, 7rows, 4columns, table headers: size, bust, waist ,hip. table abstract：size table, probably be a
             dress size</div>
         <div>XS：size, </div>
@@ -39,19 +93,50 @@
         <div>34: bust, </div>
         <div>28: waist,</div>
         <div>38: hip, </div>
-        <div>M：size, </div>
+        <div>M：size, </div> -->
 
+        <div>表格二点一</div>
+        <table>
+            <tr>
+                <td>部件类型</td>
+                <td>部件说明</td>
+                <td>保修期限</td>
+                <td>保修服务类型</td>
+            </tr>
+            <tr>
+                <td>主要部件</td>
+                <td>CPU;主板;独立显示卡;内存;硬盘驱动器(含固态硬盘)主机电源/电源适配器</td>
+                <td>三年</td>
+                <td>三年上门服务</td>
+            </tr>
+            <tr>
+                <td rowspan="3">辅件和其他部件</td>
+                <td>其他板卡:遥控器收板;无线接收板转接板/前置板;独立声卡;视频接收卡;1394卡;独立网卡;独立无线网卡等</td>
+                <td rowspan="2">一年</td>
+                <td rowspan="2">一年上门服务</td>
+            </tr>
+            <tr>
+                <td>光盘驱动器;软盘驱动器;CPU风扇机箱风扇;读卡器;机箱外部组件，如:按键指示灯，机箱内连接线</td>
+            </tr>
+            <tr>
+                <td>随机资料</td>
+                <td>三个月</td>
+                <td>客户送修服务</td>
+            </tr>
+            <tr>
+                <td rowspan="2">软件</td>
+                <td>随机资料</td>
+                <td>一年</td>
+                <td>客户送修服务</td>
+            </tr>
+            <tr>
+                <td>随机资料</td>
+                <td>三个月</td>
+                <td>客户送修服务</td>
+            </tr>
+        </table>
 
-        <script>
-            function submitText() {
-                var output = document.getElementById("outputText");
-
-                // 在2秒后显示输出文本
-                setTimeout(function () {
-                    output.value = "Waist of Size S is 28.";
-                }, 2000);
-            }
-        </script>
+        <div>表格二点二</div>
 
     </body>
 
