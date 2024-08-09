@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Interaction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>AI Model Interaction</h2>
+    <form id="inputForm">
+        <label for="userInput">Enter Text:</label><br>
+        <input type="text" id="userInput" name="userInput"><br><br>
+        <img id="displayedImage" src="17.jpg" alt="Displayed Image" width="300"><br><br> <!-- Replace 'your-image-url.jpg' with the actual image URL or path -->
+        <button type="button" onclick="submitRequest()">Submit</button>
+    </form>
+    
+    <div id="responseArea">
+        <!-- Response will be displayed here -->
+    </div>
+    
+    <script>
+        function submitRequest() {
+            var userInput = document.getElementById("userInput").value;
+            var imageUrl = document.getElementById("displayedImage").src;
+            
+            if (!userInput) {
+                alert("Please enter text.");
+                return;
+            }
+
+            var data = {
+                "userInput": userInput,
+                "imageUrl": imageUrl
+            };
+
+            var apiUrl = "8c865c363aafd67f68f6ddedc70a2b12"; // Replace with your actual API endpoint
+            
+            $.ajax({
+                url: "https://idealab.alibaba-inc.com/aigc/v1/multimodalAskByUrl",
+                type: "POST",
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function(response) {
+                    document.getElementById("responseArea").innerHTML = "<pre>" + JSON.stringify(response, null, 2) + "</pre>";
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error:", error);
+                    alert(error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
